@@ -18,3 +18,5 @@ CREATE TABLE players (
     steal TINYINT NOT NULL,
     img VARCHAR
 );
+
+-- (name, position, is_active, shooting, passing, dribble, dunking, defense, rebound, steal, img)

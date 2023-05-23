@@ -1,9 +1,9 @@
-const db = require('../db/dbConfig');
+const db = require('../db/dbConfig.js')
 
 const getAllPlayers = async () => {
     try {
         const allPlayers = await db.any("SELECT * FROM players");
-        
+
         return allPlayers;
 
     } catch (error) {
@@ -24,7 +24,7 @@ const getAPlayer = async (id) => {
 
 const createPlayer = async (playerToAdd) => {
     try {
-        const newPlayer = await db.one("INSERT INTO players (name, position, is_active, shooting, passing, dribble, dunking, defense, rebound, steal, img) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, ,$11) RETURNING *", [playerToAdd.name, playerToAdd.position, playerToAdd.is_active, playerToAdd.shooting, playerToAdd.passing, playerToAdd.dribble, playerToAdd.dunking, playerToAdd.defense, playerToAdd.rebound, playerToAdd.steal, playerToAdd.img]);
+        const newPlayer = await db.one("INSERT INTO players (name, position, is_active, shooting, passing, dribble, dunking, defense, rebound, steal, img) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *", [playerToAdd.name, playerToAdd.position, playerToAdd.is_active, playerToAdd.shooting, playerToAdd.passing, playerToAdd.dribble, playerToAdd.dunking, playerToAdd.defense, playerToAdd.rebound, playerToAdd.steal, playerToAdd.img]);
 
         return newPlayer;
 
